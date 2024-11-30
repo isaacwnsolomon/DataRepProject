@@ -3,7 +3,6 @@ const express = require('express');
 const app = express();
 const port = 4000;
 
-//mongoose.connect('mongodb+srv://admin:admin@datarepproject.5znrs.mongodb.net/?retryWrites=true&w=majority&appName=DataRepProject');
 
 //IMporting and using cors to allow browser to access server
 const cors = require('cors');
@@ -22,12 +21,14 @@ const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-// const diarySchema = new mongoose.Schema({
-//     title: String,
-//     entry: String,
-//   });
+mongoose.connect('mongodb+srv://admin:admin@datarepproject.5znrs.mongodb.net/?retryWrites=true&w=majority&appName=DataRepProject');
+
+ const diarySchema = new mongoose.Schema({
+    title: String,
+     entry: String,
+  });
  
-//  const Diary = mongoose.model('Diary', diarySchema);
+  const Diary = mongoose.model('Diary', diarySchema);
 
   app.post('/api/savedentries', async (req, res)=>{
 
