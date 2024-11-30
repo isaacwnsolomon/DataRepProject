@@ -2,7 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import NavigationBar from './components/navigationbar';
-import Header from './components/header';
+import DiaryEntry from './components/diaryentry';
 import Footer from './components/footer';
 import Content from './components/content';
 
@@ -14,9 +14,9 @@ function App() {
       <Routes>
         <Route path="/home" element={<Content />} />
         <Route path="/read" element={<Footer/>} />
-        <Route path="/create" element={<Header/>} />
+        <Route path="/create" element={<DiaryEntry/>} />
       </Routes>
-      <Footer />
+      
     </Router>
   );
 }
