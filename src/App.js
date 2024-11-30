@@ -3,7 +3,7 @@ import './App.css';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import NavigationBar from './components/navigationbar';
 import DiaryEntry from './components/diaryentry';
-import Footer from './components/footer';
+import ViewDiary from './components/viewdiary';
 import Content from './components/content';
 
 
@@ -13,7 +13,7 @@ function App() {
      <NavigationBar />
       <Routes>
         <Route path="/home" element={<Content />} />
-        <Route path="/read" element={<Footer/>} />
+        <Route path="/read" element={<ViewDiary/>} />
         <Route path="/create" element={<DiaryEntry/>} />
       </Routes>
       
