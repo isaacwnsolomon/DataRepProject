@@ -1,5 +1,6 @@
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
 
 
 const DiaryEntry = () => {
@@ -20,11 +21,22 @@ const DiaryEntry = () => {
           placeholder="Write whatever you feel like..."
           style={{ height: '100px' }}
         />
+        
       </FloatingLabel>
-    </>
+    </>   
+    {/* Save Button */}
+      <div>
+        <br></br>
+        <Button variant="primary" type="submit" >
+          Save
+        </Button>
+       
+      </div>
     </Form>
+     
     );
 
   };
-  
+     
+
   export default DiaryEntry;
