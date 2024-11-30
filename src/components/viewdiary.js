@@ -30,7 +30,6 @@ const ViewDiary = () => {
   // Render component
   return (
     <div>
-      <h3>Hello from read component!</h3>
       <Diary myDiary={entries} ReloadData={reloadData} />
     </div>
   );

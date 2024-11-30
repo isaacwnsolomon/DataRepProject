@@ -26,7 +26,7 @@ mongoose.connect('mongodb+srv://admin:admin@datarepproject.5znrs.mongodb.net/');
  const diarySchema = new mongoose.Schema({
     title: String,
      entry: String,
-  });
+  }, { timestamps: true }); // Adds 'createdAt' and 'updatedAt');
  
   const Diary = mongoose.model('Diary', diarySchema);
 
