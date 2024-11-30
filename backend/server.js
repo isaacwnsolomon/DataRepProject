@@ -21,7 +21,7 @@ const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-mongoose.connect('mongodb+srv://admin:admin@datarepproject.5znrs.mongodb.net/?retryWrites=true&w=majority&appName=DataRepProject');
+mongoose.connect('mongodb+srv://admin:admin@datarepproject.5znrs.mongodb.net/');
 
  const diarySchema = new mongoose.Schema({
     title: String,
@@ -44,3 +44,8 @@ mongoose.connect('mongodb+srv://admin:admin@datarepproject.5znrs.mongodb.net/?re
         const diary = await Diary.find({});
         res.json(diary);
       });
+
+      // Start server and listen on specified port
+app.listen(port, () => {
+  console.log(`Server is running on http://localhost:${port}`);
+});
