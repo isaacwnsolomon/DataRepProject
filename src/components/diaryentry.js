@@ -1,13 +1,26 @@
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
-
+import { useState } from "react";
+//import axios from "axios";
 
 const DiaryEntry = () => {
 
+  // const [title, setTitle] = useState('');
+  // const[entry, setEntry] = useState('');
 
+
+//   const handleSubmit = (e) => {
+//     e.preventDefault();
+//     const diary = {title,entry};
+//     console.log(diary);
+
+//     axios.post('http://localhost:4000/api/savedentries',diary)
+//     .then((res)=>{console.log(res.data)})
+//     .catch();
+// }
     return (
-      <Form>
+      <Form >
       <Form.Group className="mb-3" controlId="title">
         <Form.Label>Entry Title</Form.Label>
         <Form.Control  placeholder="Enter your title" />
