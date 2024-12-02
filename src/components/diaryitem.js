@@ -13,9 +13,26 @@ const DiaryItem = (props) =>{
     console.log("Diary Item:", props.myDiary);
     }, [props.myDiary]);
 
+      // Function to handle deletion of a movie
+  const handleDelete = (e)=>{
+    // Prevents default form submission behaviour
+    e.preventDefault();
+    console.log('Deleting entry with ID:', props.myDiary._id);
+
+    // Send a delete request to server using axios
+    axios.delete('http://localhost:4000/api/savedentries/' + props.myDiary._id)
+    .then((res)=>{
+      // Calls reload functin passed from parent 
+      props.ReloadData();
+    })
+    .catch((err) =>{
+      // Log errors
+      console.log(err)
+    });
+  }
     const formattedDate = format(new Date(props.myDiary.createdAt), 'PPPpp'); 
 
-     // render movie details in card component // <footer>{props.mydiary.entry}</footer>
+     // render diary details in card component // <footer>{props.mydiary.entry}</footer>
   return (
     <Card style={{ width: '18rem' }}>
       <Card.Body>
@@ -26,8 +43,9 @@ const DiaryItem = (props) =>{
         <Card.Subtitle className="mb-2 text-muted">
           {formattedDate}
         </Card.Subtitle>
-        <Card.Link href="#">Card Link</Card.Link>
-        <Card.Link href="#">Another Link</Card.Link>
+        <Button className="btn btn-danger" onClick={handleDelete}>Delete</Button>
+        <Button className="btn btn-primary" >Edit</Button>
+        
       </Card.Body>
     </Card>
   );

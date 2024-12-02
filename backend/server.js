@@ -45,6 +45,20 @@ mongoose.connect('mongodb+srv://admin:admin@datarepproject.5znrs.mongodb.net/');
         res.json(diary);
       });
 
+    // Delete to handle diary deletion by id
+app.delete('/api/savedentries/:id', async (req, res) => {
+  // Log ID of entry being deleted
+  console.log('Deleting entry with ID:', req.params.id);
+  // Finds movie by ID and deletes from database
+  const entry = await Diary.findByIdAndDelete(req.params.id);
+     if (entry) {
+      res.status(200).send({ message: "Entry deleted successfully", entry });
+    } else {
+      res.status(404).send({ message: "Entry not found" });
+    }
+  
+});
+
       // Start server and listen on specified port
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);
