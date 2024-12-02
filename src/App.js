@@ -6,6 +6,7 @@ import DiaryEntry from './components/diaryentry';
 import ViewDiary from './components/viewdiary';
 import Content from './components/content';
 import Edit from './components/edit';
+import Read from './components/read';
 
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
         <Route path="/viewdiary" element={<ViewDiary/>} />
         <Route path="/create" element={<DiaryEntry/>} />
         <Route path="/edit/:id" element={<Edit />} /> 
+        <Route path="/read/:id" element={<Read />} /> 
       </Routes>
       
     </Router>

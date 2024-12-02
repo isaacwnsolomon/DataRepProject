@@ -23,7 +23,7 @@ const DiaryItem = (props) =>{
     axios.delete('http://localhost:4000/api/savedentries/' + props.myDiary._id)
     .then((res)=>{
       // Calls reload functin passed from parent 
-      props.Reload();
+      props.ReloadData();
     })
     .catch((err) =>{
       // Log errors
@@ -46,6 +46,9 @@ const DiaryItem = (props) =>{
         <Button className="btn btn-danger" onClick={handleDelete}>Delete</Button>
         {/* Link to edit the movie, navigating to the edit route */}
         <Link className = "btn btn-primary" to={"/edit/" +props.myDiary._id}>Edit</Link>
+         
+         {/* Link to edit the movie, navigating to the edit route */}
+         <Link className = "btn btn-primary" to={"/read/" +props.myDiary._id}>Read</Link>
         
       </Card.Body>
     </Card>

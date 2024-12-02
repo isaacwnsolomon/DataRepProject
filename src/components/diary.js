@@ -8,7 +8,7 @@ const Diary = (props)=>{
 
         (diary)=>{
             // Render DiaryItem component for each diary object
-            return <DiaryItem myDiary={diary} key={diary._id} Reload={props.ReloadData}/>
+            return <DiaryItem myDiary={diary} key={diary._id} ReloadData={props.ReloadData}/>
         }
     );
 }
