@@ -5,6 +5,7 @@ import NavigationBar from './components/navigationbar';
 import DiaryEntry from './components/diaryentry';
 import ViewDiary from './components/viewdiary';
 import Content from './components/content';
+import Edit from './components/edit';
 
 
 function App() {
@@ -13,8 +14,9 @@ function App() {
      <NavigationBar />
       <Routes>
         <Route path="/home" element={<Content />} />
-        <Route path="/read" element={<ViewDiary/>} />
+        <Route path="/viewdiary" element={<ViewDiary/>} />
         <Route path="/create" element={<DiaryEntry/>} />
+        <Route path="/edit/:id" element={<Edit />} /> 
       </Routes>
       
     </Router>
