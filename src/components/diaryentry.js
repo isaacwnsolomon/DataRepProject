@@ -1,33 +1,40 @@
+//Floating labels for form inputs
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
+// Boostrap form components
 import Form from 'react-bootstrap/Form';
+// Bootstrap button
 import Button from 'react-bootstrap/Button';
+// React hook to manage component state
 import { useState } from "react";
+// Http client for sending requests to backend
 import axios from "axios";
 
 const DiaryEntry = () => {
 
-  // State for title and entry and mood
-  const [title, setTitle] = useState('');
-  const[entry, setEntry] = useState('');
-  const [mood, setMood] = useState('neutral'); 
+  // State to manage title and entry and mood
+  const [title, setTitle] = useState(''); // State for diary title
+  const[entry, setEntry] = useState(''); // State for main entr
+  const [mood, setMood] = useState('neutral');  // State for mood selection with a defualt of netural
 
 // Handles form submission 
   const handleSubmit = (e) => {
-    // prevent page reload
+    // prevent default form behaviour like page reload
     e.preventDefault();
     // create object with current state
     const diary = {title,entry, mood};
+    // Log diary object to console
     console.log(diary);
 
     // Send data to backend using axios
     axios.post('http://localhost:4000/api/savedentries',diary)
     .then((res)=>{
-      console.log(res.data)
+      console.log(res.data) // Log response from server
       setTitle(''); // Clear the title input field after submission
       setEntry(''); // Clear the entry input field after submission
       setMood('neutral'); // Set mood back to netural 
     })
     .catch((err) =>{
+      // Log any errors
       console.error(err);
     });
 }
@@ -60,6 +67,7 @@ const DiaryEntry = () => {
       <Form.Group className="mb-3">
         <Form.Label>Mood</Form.Label>
         <Form.Select value={mood} onChange={(e) => setMood(e.target.value)}>
+           {/* Options for different moods */}
           <option value="happy">Happy</option>
           <option value="sad">Sad</option>
           <option value="neutral">Neutral</option>
@@ -84,5 +92,5 @@ const DiaryEntry = () => {
 
   };
      
-
+// Export so can be used in other parts of the app
   export default DiaryEntry;

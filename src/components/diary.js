@@ -1,9 +1,9 @@
-// Importing MovieItem 
+// Importing DiaryItem 
 import DiaryItem from "./diaryitem";
 
-//Define movies component which receives prop as an argument
+//Define diary component which receives prop as an argument
 const Diary = (props)=>{
-    // using map method to iterate of myMovies
+    // using map method to iterate of myDiary
     return props.myDiary.map(
         
         (diary)=>{
@@ -12,5 +12,5 @@ const Diary = (props)=>{
         }
     );
 }
-// Export Movies
+// Export Diary
 export default Diary;
