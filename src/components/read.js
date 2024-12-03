@@ -7,11 +7,10 @@ const Read = () => {
   const [diaryEntry, setDiaryEntry] = useState(null); // Store the fetched diary entry
 
   useEffect(() => {
-    // Create a new entry object with updated details
-    const readEntry = { id, title, entry};
+    
     // Fetch the diary entry by its ID
     axios
-      .get(`http://localhost:4000/api/savedentries/` + id, diaryEntry)
+      .get(`http://localhost:4000/api/savedentries/${id}`)
       .then((response) => {
         setDiaryEntry(response.data); // Set the entry data in state
       })
@@ -28,8 +27,8 @@ const Read = () => {
 
   return (
     <div>
-      <h1>{diaryEntry.title}</h1>
-      <p>{diaryEntry.entry}</p>
+<h1>{diaryEntry.title}</h1>
+<p>{diaryEntry.entry}</p>
       <p><strong>Created At:</strong> {new Date(diaryEntry.createdAt).toLocaleString()}</p>
     </div>
   );

@@ -47,7 +47,7 @@ useEffect(() => {
             // log response data
             console.log(res.data);
             // Redirect to read page
-            navigate('/read');
+            navigate(`/read/${id}`);
         });
 }
 
@@ -71,7 +71,7 @@ return (
             </div>
             <div className="form-group">
                 <br></br>
-                <Link className = "btn btn-primary" to={"/viewdiary"}>Save</Link>
+                <button type="submit" className="btn btn-primary">Save</button>
             </div>
         </form>
     </div>

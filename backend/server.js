@@ -28,20 +28,21 @@ mongoose.connect('mongodb+srv://admin:admin@datarepproject.5znrs.mongodb.net/');
      entry: String,
   }, { timestamps: true }); // Adds 'createdAt' and 'updatedAt');
  
-  const Diary = mongoose.model('Diary', diarySchema);
+  // Creatig a model based on entry schema
+  const diaryModel = mongoose.model('Diary', diarySchema);
 
   app.post('/api/savedentries', async (req, res)=>{
 
     const { title, entry } = req.body;
    
-    const newEntry = new Diary({ title, entry });
+    const newEntry = new diaryModel({ title, entry });
     await newEntry.save();
    
     res.status(201).json({ message: 'Movie created successfully', entry: newEntry });
     })
 
     app.get('/api/savedentries', async (req, res) => {
-        const diary = await Diary.find({});
+        const diary = await diaryModel.find({});
         res.json(diary);
       });
 
@@ -50,7 +51,7 @@ app.delete('/api/savedentries/:id', async (req, res) => {
   // Log ID of entry being deleted
   console.log('Deleting entry with ID:', req.params.id);
   // Finds movie by ID and deletes from database
-  const entry = await Diary.findByIdAndDelete(req.params.id);
+  const entry = await diaryModel.findByIdAndDelete(req.params.id);
      if (entry) {
       res.status(200).send({ message: "Entry deleted successfully", entry });
     } else {
@@ -58,6 +59,23 @@ app.delete('/api/savedentries/:id', async (req, res) => {
     }
   
 });
+
+// Route to fetch entries based on ID
+app.get('/api/savedentries/:id', async (req ,res)=>{
+  // Finds entry on ID
+  const entry = await diaryModel.findById(req.params.id);
+ // Returns movie in JSON
+  res.json(entry)
+})
+
+
+// Update entry by ID
+app.put('/api/savedentries/:id', async (req,res)=>{
+  // Update movie and return updated docuemnt
+  let entry = await diaryModel.findByIdAndUpdate(req.params.id, req.body, {new:true});
+  // Returns updated movie
+  res.send(entry);
+})
 
       // Start server and listen on specified port
 app.listen(port, () => {
