@@ -27,7 +27,7 @@ mongoose.connect('mongodb+srv://admin:admin@datarepproject.5znrs.mongodb.net/');
     title: String,
      entry: String,
      // Add mood - enum so only predefined values
-     mood: { type: String, enum: ["happy", "sad", "neutral", "excited", "angry"] }, 
+     mood: { type: String, enum: ["happy", "sad", "neutral", "excited", "angry"], required:true}, 
   }, { timestamps: true }); // Adds 'createdAt' and 'updatedAt');
  
   // Creatig a model based on entry schema

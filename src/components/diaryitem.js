@@ -32,6 +32,9 @@ const DiaryItem = (props) =>{
   }
     const formattedDate = format(new Date(props.myDiary.createdAt), 'PPPpp'); 
 
+    useEffect(() => {
+      console.log("Diary Item props:", props.myDiary);
+  }, [props.myDiary]);
      // render diary details in card component // <footer>{props.mydiary.entry}</footer>
   return (
     <Card style={{ width: '18rem' }}>
