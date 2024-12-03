@@ -6,16 +6,17 @@ import axios from "axios";
 
 const DiaryEntry = () => {
 
-  // State for title and entry
+  // State for title and entry and mood
   const [title, setTitle] = useState('');
   const[entry, setEntry] = useState('');
+  const [mood, setMood] = useState('neutral'); 
 
 // Handles form submission 
   const handleSubmit = (e) => {
     // prevent page reload
     e.preventDefault();
     // create object with current state
-    const diary = {title,entry};
+    const diary = {title,entry, mood};
     console.log(diary);
 
     // Send data to backend using axios
@@ -24,6 +25,7 @@ const DiaryEntry = () => {
       console.log(res.data)
       setTitle(''); // Clear the title input field after submission
       setEntry(''); // Clear the entry input field after submission
+      setMood('neutral'); // Set mood back to netural 
     })
     .catch((err) =>{
       console.error(err);
@@ -54,7 +56,16 @@ const DiaryEntry = () => {
           />
         </FloatingLabel>
       </Form.Group>
-        
+      <Form.Group className="mb-3">
+        <Form.Label>Mood</Form.Label>
+        <Form.Select value={mood} onChange={(e) => setMood(e.target.value)}>
+          <option value="happy">Happy</option>
+          <option value="sad">Sad</option>
+          <option value="neutral">Neutral</option>
+          <option value="excited">Excited</option>
+          <option value="angry">Angry</option>
+        </Form.Select>
+      </Form.Group>
    
     </>   
     {/* Save Button */}

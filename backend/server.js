@@ -26,6 +26,8 @@ mongoose.connect('mongodb+srv://admin:admin@datarepproject.5znrs.mongodb.net/');
  const diarySchema = new mongoose.Schema({
     title: String,
      entry: String,
+     // Add mood - enum so only predefined values
+     mood: { type: String, enum: ["happy", "sad", "neutral", "excited", "angry"] }, 
   }, { timestamps: true }); // Adds 'createdAt' and 'updatedAt');
  
   // Creatig a model based on entry schema
@@ -33,9 +35,9 @@ mongoose.connect('mongodb+srv://admin:admin@datarepproject.5znrs.mongodb.net/');
 
   app.post('/api/savedentries', async (req, res)=>{
 
-    const { title, entry } = req.body;
+    const { title, entry, mood } = req.body;
    
-    const newEntry = new diaryModel({ title, entry });
+    const newEntry = new diaryModel({ title, entry, mood });
     await newEntry.save();
    
     res.status(201).json({ message: 'Movie created successfully', entry: newEntry });

@@ -40,6 +40,9 @@ const DiaryItem = (props) =>{
         <Card.Text>
           {props.myDiary.entry}
         </Card.Text>
+        <Card.Subtitle
+          className="mb-2 text-muted">Mood: {props.myDiary.mood}
+        </Card.Subtitle>
         <Card.Subtitle className="mb-2 text-muted">
           {formattedDate}
         </Card.Subtitle>
