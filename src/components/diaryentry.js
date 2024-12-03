@@ -65,6 +65,7 @@ const DiaryEntry = () => {
           <option value="neutral">Neutral</option>
           <option value="excited">Excited</option>
           <option value="angry">Angry</option>
+          <option value="tired">Tired</option>
         </Form.Select>
       </Form.Group>
    
