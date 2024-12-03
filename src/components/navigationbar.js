@@ -6,6 +6,7 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 
 const NavigationBar = () => {
   return (
+    <div className="app-container">
         <Navbar bg="dark" data-bs-theme="dark">
           <Container>
           <Navbar.Brand href="#home">Life Manager</Navbar.Brand>
@@ -30,6 +31,7 @@ const NavigationBar = () => {
         </Navbar.Collapse>
           </Container>
       </Navbar>
+      </div>
   );
 };
 

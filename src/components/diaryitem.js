@@ -37,6 +37,7 @@ const DiaryItem = (props) =>{
   }, [props.myDiary]);
      // render diary details in card component // <footer>{props.mydiary.entry}</footer>
   return (
+    <div className="app-container">
     <Card style={{ width: '18rem' }}>
       <Card.Body>
         <Card.Title>{props.myDiary.title}</Card.Title>
@@ -58,6 +59,7 @@ const DiaryItem = (props) =>{
         
       </Card.Body>
     </Card>
+    </div>
   );
 }
     

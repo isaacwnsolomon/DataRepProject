@@ -56,6 +56,7 @@ useEffect(() => {
 
 //render form for editing entry
 return (
+    <div className="app-container">
     <Form onSubmit={handleSubmit}>
         {/* Title input */}
     <Form.Group className="mb-3" controlId="title">
@@ -92,7 +93,7 @@ return (
      
     </div>
   </Form>
-   
+  </div>
   );
 
 };

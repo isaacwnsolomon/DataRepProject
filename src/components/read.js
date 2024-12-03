@@ -26,11 +26,13 @@ const Read = () => {
   
 
   return (
+    <div className="app-container">
     <div>
 <h1>{diaryEntry.title}</h1>
 <p>{diaryEntry.entry}</p>
 <p><strong>Mood: </strong> {diaryEntry.mood}</p>
 <p><strong>Created At:</strong> {new Date(diaryEntry.createdAt).toLocaleString()}</p>
+    </div>
     </div>
   );
 };

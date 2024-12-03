@@ -32,6 +32,7 @@ const DiaryEntry = () => {
     });
 }
     return (
+      <div className="app-container">
       <Form onSubmit={handleSubmit}>
           {/* Title input */}
       <Form.Group className="mb-3" controlId="title">
@@ -77,7 +78,7 @@ const DiaryEntry = () => {
        
       </div>
     </Form>
-     
+    </div>
     );
 
   };

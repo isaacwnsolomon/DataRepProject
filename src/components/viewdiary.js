@@ -29,8 +29,10 @@ const ViewDiary = () => {
 
   // Render component
   return (
+    <div className="app-container">
     <div>
       <Diary myDiary={entries} ReloadData={reloadData} />
+    </div>
     </div>
   );
 }
