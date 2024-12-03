@@ -4,6 +4,9 @@ import { useState, useEffect } from 'react';// Import useState and useEffect hoo
 import axios from 'axios';// Import axios for HTTP requests
 import { useNavigate } from "react-router-dom";// Import useNavigate for navigation
 import { Link } from "react-router-dom"; // Link for navigtion
+import FloatingLabel from 'react-bootstrap/FloatingLabel';
+import Form from 'react-bootstrap/Form';
+import { Button } from 'react-bootstrap';
 
 //Define edit component
 export default function Edit(props){
@@ -53,27 +56,44 @@ useEffect(() => {
 
 //render form for editing entry
 return (
+    <Form onSubmit={handleSubmit}>
+        {/* Title input */}
+    <Form.Group className="mb-3" controlId="title">
+      <Form.Label>Entry Title</Form.Label>
+      <Form.Control  type="text"
+        placeholder="Enter your title"
+        value={title} // Bind input to title state
+        onChange={(e) => setTitle(e.target.value)} // Update state on change
+         />
+    </Form.Group>
+    <>
+    {/* Entry body input */}
+    <Form.Group className="mb-3" controlId="mainEntry">
+      <Form.Label>Main Entry</Form.Label>
+      <FloatingLabel controlId="mainEntry">
+        <Form.Control
+          as="textarea"
+          placeholder="Write whatever you feel like..."
+          style={{ height: '100px' }}
+          value={entry} // Bind input to entry state
+          onChange={(e) => setEntry(e.target.value)} // Update state on change
+        />
+      </FloatingLabel>
+    </Form.Group>
+      
+ 
+  </>   
+  {/* Save Button */}
     <div>
-        <form onSubmit={handleSubmit}>
-            <div className="form-group">
-                <label>Entry Title: </label>
-                <input type="text" 
-                className="form-control" 
-                value={title} 
-                onChange={(e) => setTitle(e.target.value)} />
-            </div>
-            <div className="form-group">
-                <label>Main Entry: </label>
-                <input type="text" 
-                className="form-control" 
-                value={entry} 
-                onChange={(e) => setEntry(e.target.value)} />
-            </div>
-            <div className="form-group">
-                <br></br>
-                <button type="submit" className="btn btn-primary">Save</button>
-            </div>
-        </form>
+      <br></br>
+      <Button variant="primary" type="submit" >
+        Save
+      </Button>
+     
     </div>
-);
-}
+  </Form>
+   
+  );
+
+};
+   
