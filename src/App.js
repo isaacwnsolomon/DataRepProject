@@ -9,8 +9,10 @@ import Edit from './components/edit';
 import Read from './components/read';
 
 
+
 function App() {
   return (
+    <div className='appContainer'>
     <Router>
      <NavigationBar />
       <Routes>
@@ -19,9 +21,11 @@ function App() {
         <Route path="/create" element={<DiaryEntry/>} />
         <Route path="/edit/:id" element={<Edit />} /> 
         <Route path="/read/:id" element={<Read />} /> 
+       
       </Routes>
       
     </Router>
+    </div>
   );
 }
 
