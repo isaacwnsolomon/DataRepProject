@@ -75,7 +75,7 @@ return (
         <Form.Control
           as="textarea"
           placeholder="Write whatever you feel like..."
-          style={{ height: '100px' }}
+          style={{ height: '400px' }}
           value={entry} // Bind input to entry state
           onChange={(e) => setEntry(e.target.value)} // Update state on change
         />
