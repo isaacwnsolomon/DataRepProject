@@ -9,7 +9,7 @@ const NavigationBar = () => {
     <div className="app-container">
         <Navbar bg="dark" data-bs-theme="dark">
           <Container>
-          <Navbar.Brand href="#home">Life Manager</Navbar.Brand>
+          <Navbar.Brand href="#home">My Diary</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">

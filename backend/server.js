@@ -79,6 +79,8 @@ app.put('/api/savedentries/:id', async (req,res)=>{
   res.send(entry);
 })
 
+app.get('/quotes/random')
+
       // Start server and listen on specified port
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);
