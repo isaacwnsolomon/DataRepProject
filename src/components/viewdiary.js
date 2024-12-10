@@ -48,6 +48,8 @@ const ViewDiary = () => {
   // Render component
   return (
     <div className="app-container">
+       {/* Display the Quote component at the top */}
+       <Quote />
       <Form inline>
         <Row>
           <Col xs="auto">
