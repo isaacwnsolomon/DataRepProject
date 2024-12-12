@@ -78,8 +78,17 @@ app.put('/api/savedentries/:id', async (req,res)=>{
   // Returns updated movie
   res.send(entry);
 })
+const axios = require('axios');
 
-app.get('/quotes/random')
+app.get('/api/quote', async (req, res) => {
+  try {
+      const response = await axios.get('https://zenquotes.io/api/random');
+      res.json(response.data); // Forward the response to the frontend
+  } catch (error) {
+      console.error('Error fetching quote:', error.message);
+      res.status(500).json({ error: 'Failed to fetch quote.' });
+  }
+});
 
       // Start server and listen on specified port
 app.listen(port, () => {
