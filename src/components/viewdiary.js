@@ -1,6 +1,7 @@
-import Diary from "./diary"; // Importing diary component
-import { useEffect, useState } from "react";// Importing react hooks
-import axios from "axios"; // Importing axios for http requests
+// importing relevant imports
+import Diary from "./diary"; 
+import { useEffect, useState } from "react";
+import axios from "axios"; 
 import Navbar from 'react-bootstrap/Navbar';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
@@ -11,7 +12,7 @@ import Quote from "./quote";
 
 // Define read component
 const ViewDiary = () => {
-//State variable movies to store entry data and setEntry function to update and search query
+//State variables to store entry data and setEntry function to update and search query
   const [entries, setEntry] = useState([]);
   const [query, setQuery] = useState('');
 
@@ -20,18 +21,18 @@ const ViewDiary = () => {
     // Make get request
     axios.get('http://localhost:4000/api/savedentries')
     .then((response) => {
-      // log response to console
+     
       console.log(response.data);
-      // Update state with fetch movie data
+      // Update state with fetch entry data
       setEntry(response.data);
     })
     .catch((error) => {
-      // Log errors to console
+     
       console.log(error);
     });
   }
   useEffect(() => {
-    // Call reloadData to detch and set movie data
+    // Call reloadData to detch and set diary data
       reloadData();
   },[]);
 

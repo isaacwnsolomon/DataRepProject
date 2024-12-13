@@ -1,3 +1,4 @@
+// Importing all relevant imports
 import logo from './logo.svg';
 import './App.css';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
@@ -15,6 +16,7 @@ function App() {
     <Router>
      <NavigationBar />
       <Routes>
+        {/* Defines routes*/ }
         <Route path="/viewdiary" element={<ViewDiary/>} />
         <Route path="/create" element={<DiaryEntry/>} />
         <Route path="/edit/:id" element={<Edit />} /> 
@@ -26,5 +28,5 @@ function App() {
     </div>
   );
 }
-
+// Exporting app component
 export default App;

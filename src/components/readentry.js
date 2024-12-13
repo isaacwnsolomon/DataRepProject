@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom"; // To get the diary entry ID
 import axios from "axios";
 
 const ReadEntry = () => {
-  const { id } = useParams(); // Get the `id` from the URL
+  const { id } = useParams(); // Get the id from the URL
   const [diaryEntry, setDiaryEntry] = useState(null); // Store the fetched diary entry
 
   useEffect(() => {
@@ -24,7 +24,7 @@ const ReadEntry = () => {
   }
 
   
-
+// Render fetched diary entry details
   return (
     <div className="app-container">
     <div>
@@ -36,5 +36,5 @@ const ReadEntry = () => {
     </div>
   );
 };
-
+// Export ReadEntry component
 export default ReadEntry;

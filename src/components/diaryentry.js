@@ -1,37 +1,34 @@
-//Floating labels for form inputs
+// Importing all relevant imports
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
-// Boostrap form components
 import Form from 'react-bootstrap/Form';
-// Bootstrap button
 import Button from 'react-bootstrap/Button';
-// React hook to manage component state
 import { useState } from "react";
-// Http client for sending requests to backend
 import axios from "axios";
 
 const DiaryEntry = () => {
 
   // State to manage title and entry and mood
-  const [title, setTitle] = useState(''); // State for diary title
-  const[entry, setEntry] = useState(''); // State for main entr
-  const [mood, setMood] = useState('neutral');  // State for mood selection with a defualt of netural
+  const [title, setTitle] = useState('');
+  const[entry, setEntry] = useState('');
+  const [mood, setMood] = useState('neutral'); 
 
 // Handles form submission 
   const handleSubmit = (e) => {
-    // prevent default form behaviour like page reload
+    
     e.preventDefault();
     // create object with current state
     const diary = {title,entry, mood};
-    // Log diary object to console
+   
     console.log(diary);
 
     // Send data to backend using axios
     axios.post('http://localhost:4000/api/savedentries',diary)
     .then((res)=>{
-      console.log(res.data) // Log response from server
-      setTitle(''); // Clear the title input field after submission
-      setEntry(''); // Clear the entry input field after submission
-      setMood('neutral'); // Set mood back to netural 
+      console.log(res.data)
+       // Clear the entry and title field after submission and set mood to netural
+      setTitle(''); 
+      setEntry('');
+      setMood('neutral');
     })
     .catch((err) =>{
       // Log any errors
