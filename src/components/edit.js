@@ -44,13 +44,13 @@ useEffect(() => {
     event.preventDefault();
     // Create a new entry object with updated details
     const newEntry = { id, title, entry };
-    // Send PUT request to update the movie
+    // Send PUT request to update the entry
     axios.put('http://localhost:4000/api/savedentries/' + id, newEntry)
         .then((res) => {
             // log response data
             console.log(res.data);
             // Redirect to read page
-            navigate(`/read/${id}`);
+            navigate(`/readentry/${id}`);
         });
 }
 
